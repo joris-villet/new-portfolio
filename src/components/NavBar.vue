@@ -2,7 +2,16 @@
   <nav class="nav">
     <div class="container">
       <div class="navbar">
-        <h2 class="title">Joris villet</h2>
+        <div class="navbar-profil">
+          <h2 class="nav-title">Joris villet</h2>
+          <div class="nav-border">
+            <img
+              class="nav-img" 
+              src="https://media-exp1.licdn.com/dms/image/C4D03AQHdmV0OO6LZ3g/profile-displayphoto-shrink_800_800/0/1580138125004?e=1621468800&v=beta&t=7YYpgq7L8ox61jANMv7bPLqNfzrM3vP5HnTGlUYUiJk" 
+              alt="photo de profil"
+            >
+        </div>
+        </div>
         <ul class="nav-ul">
           <li class="nav-ul-item">
               <router-link v-if="home" class="nav-ul-item-link" to="/about">About me</router-link>
@@ -27,6 +36,7 @@ export default {
   },
   created() {
     this.route()
+    window.addEventListener('scroll', this.hideImg);
   },
   mounted(){
     window.addEventListener('scroll', () => {
@@ -40,6 +50,17 @@ export default {
       if (this.$route.name === "About") {
         this.home = false;
       }
+    },
+    hideImg: function() {
+      if (this.$route.name === "About") {
+        const img = document.querySelector('.nav-border')
+        if (window.scrollY > 170) {
+          setTimeout(() => { img.style.opacity = "1", 500})
+        }
+        else {
+          img.style.opacity = "0"
+        }
+      }
     }
   }
 }
@@ -50,12 +71,7 @@ export default {
     max-width: 1200px;
     margin: 0 auto;
   }
-  .title {
-    font-family: 'Lobster', cursive;
-    font-size: 2rem;
-    margin: 0;
-    color: #915bfd;
-  }
+  
   .navbar {
     display: flex;
     justify-content: space-between;
@@ -63,6 +79,12 @@ export default {
     height: 140px;
     transition: .3s ease-in;
     color: #9a9a9a;
+
+    &-profil {
+      display: flex;
+      justify-content: flex-start;
+    }
+
   }
   
   .nav {
@@ -71,6 +93,30 @@ export default {
     top: 0;
     background: #fff;
     z-index: 2;
+
+    &-title {
+      font-family: 'Lobster', cursive;
+      font-size: 2rem;
+      margin: 0 2rem 0 0;
+      color: #915bfd;
+    }
+
+    &-border {
+      margin: 0 auto;
+      overflow: hidden;
+      border: 2px solid rgb(100,22,255);
+      border-radius: 50%;
+      box-shadow: 5px 5px 10px rgba(0,0,0,0.2);
+      width: 40px;
+      height: 40px;
+      opacity: 0;
+      transition: .3s ease-in;
+    }
+
+    &-img {
+      width: 100%;
+      height: auto;
+    }
 
     &-ul {
       display: flex;

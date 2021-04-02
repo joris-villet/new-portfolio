@@ -1,23 +1,21 @@
 <template>
-
-<transition name="fade">
-  <div v-if="loaded">
-    <div class="container__project__item">
-        <div class="container__project__item__content">
-          <img
-            class="container__project__item__content__img"
-            :src=url
-            alt="image projet"
-          >
-          <h2 class="container__project__item__content__title">{{ title }}</h2>
-          <p class="container__project__item__content__paragraphe">
-              {{ description }}
-          </p>
+  <transition name="fade">
+    <div v-if="loaded">
+      <div class="container__project__item">
+          <div class="container__project__item__content">
+            <img
+              class="container__project__item__content__img"
+              :src=url
+              alt="image projet"
+            >
+            <h2 class="container__project__item__content__title">{{ title }}</h2>
+            <p class="container__project__item__content__paragraphe">
+                {{ description }}
+            </p>
+          </div>
         </div>
-      </div>
-  </div>
-</transition>
-
+    </div>
+  </transition>
 </template>
 
 <script>
@@ -34,9 +32,7 @@ export default {
   },
   methods: {
     animation: function() {
-      setTimeout(() => {
-        this.loaded = true;
-      }, 200)
+      setTimeout(() => { this.loaded = true }, 200)
     }
   }
 }

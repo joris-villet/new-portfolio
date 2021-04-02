@@ -59,13 +59,14 @@ export default {
   },
   methods: {
     hideImg: function() {
-      console.log(window.scrollY)
-      const img = document.querySelector('.header-border')
-      if (window.scrollY > 170) {
-        img.style.opacity = "0"
-      }
-      else {
-        img.style.opacity = "1"
+      if (this.$route.name === "About") {
+        const img = document.querySelector('.header-border')
+        if (window.scrollY > 170) {
+          img.style.opacity = "0"
+        }
+        else {
+          img.style.opacity = "1"
+        }
       }
     }
   }

@@ -36,8 +36,8 @@ export default {
   body {
     margin: 0;
     padding: 0;
-    
   }
+  
   #app {
     background: #f9f9f9;
     box-sizing: border-box;
