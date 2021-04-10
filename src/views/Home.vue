@@ -11,13 +11,19 @@
         url="/iphone"
         :img="imageIphone"
         title="Use my Phone"
-        description="Pratique d'intégrations et d'animations pour se faire la main en css"
+        description="Pratique d'intégrations et d'animations pour se faire la main en css."
       />
       <CardProject
-        url="/about"
-        img="https://images.wallpaperscraft.com/image/guitar_close-up_house_80963_1280x720.jpg"
-        title="titre numéro 2"
-        description="blablabla"
+        url="/shop"
+        :img="imageShop"
+        title="Click and collect App"
+        description="Création d'une SPA pour faire son shopping en ligne. J'ai beaucoup appris sur les emit event !!"
+      />
+      <TrueProject 
+        url="https://mcvperformance.fr"
+        :img="imageMcvperf"
+        title="MCVPerformance"
+        description="Premier projet free pour un client du secteur automobile. Je commence à travailler sur la version 2 qui sera build avec NuxtJs."
       />
       <CardProject
         url="/about"
@@ -33,18 +39,20 @@
 
 <script>
 // @ is an alias to /src
-import NavBar from "@/components/NavBar";
-import CardProject from "@/components/CardProject";
+import NavBar from "@/components/NavBar"
+import CardProject from "@/components/CardProject"
+import TrueProject from '@/components/TrueProject'
+import ImageMcvperf from '@/assets/img/logo-solo-mcv.png'
 import ImageIphone from '@/assets/img/iphone.png'
+import ImageShop from '@/assets/img/shop.png'
 export default {
   name: "Home",
-  components: {
-    NavBar,
-    CardProject,
-  },
+  components: { NavBar, CardProject, TrueProject },
   data () {
     return {
-      imageIphone: ImageIphone
+      imageIphone: ImageIphone,
+      imageShop: ImageShop,
+      imageMcvperf: ImageMcvperf
     }
   }
 };
@@ -60,6 +68,7 @@ export default {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-column-gap: 20px;
+    grid-row-gap: 50px;
     max-width: 1200px;
     margin: 5rem auto;
     height: auto;

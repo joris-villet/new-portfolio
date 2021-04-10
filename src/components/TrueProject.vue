@@ -1,5 +1,5 @@
 <template>
-  <router-link class="link" :to="url">
+  <a class="link" :href="url" target="_blank">
     <transition name="fade">
         <div v-if="loaded">
           <div class="container__project__item">
@@ -15,12 +15,12 @@
             </div>
         </div>
     </transition>
-  </router-link>
+  </a>
 </template>
 
 <script>
 export default {
-  name: 'CardProject',
+  name: 'TrueProject',
   props: {
     url: String,
     img: String,
