@@ -43,7 +43,12 @@ export default {
     box-sizing: border-box;
     font-family: verdana;
     height: 3000px;
-    font-family: 'Josefin Sans', sans-serif;
+    // height: auto;
+    font-family: 'Fjalla One', sans-serif;
+  }
+
+  p {
+    color: #81758c;
   }
 
   .btnTop {

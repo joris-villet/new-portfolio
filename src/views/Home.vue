@@ -10,18 +10,21 @@
 
     <div class="container-project">
       <CardProject
-        url="https://images.wallpaperscraft.com/image/code_letters_screen_137590_1280x720.jpg"
-        title="titre de merde"
-        description="blablabla"
+        url="/iphone"
+        img="https://images.wallpaperscraft.com/image/code_letters_screen_137590_1280x720.jpg"
+        title="Use my Phone"
+        description="Pratique d'intégrations et d'animations pour se faire la main en css"
       />
       
       <CardProject
-        url="https://images.wallpaperscraft.com/image/guitar_close-up_house_80963_1280x720.jpg"
+        url="/about"
+        img="https://images.wallpaperscraft.com/image/guitar_close-up_house_80963_1280x720.jpg"
         title="titre numéro 2"
         description="blablabla"
       />
       <CardProject
-        url="https://images.wallpaperscraft.com/image/car_neon_man_137624_1280x720.jpg"
+        url="/about"
+        img="https://images.wallpaperscraft.com/image/car_neon_man_137624_1280x720.jpg"
         title="bin le dernier titre va"
         description="description ici"
       />

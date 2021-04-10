@@ -1,27 +1,34 @@
 <template>
-  <transition name="fade">
-    <div v-if="loaded">
-      <div class="container__project__item">
-          <div class="container__project__item__content">
-            <img
-              class="container__project__item__content__img"
-              :src=url
-              alt="image projet"
-            >
-            <h2 class="container__project__item__content__title">{{ title }}</h2>
-            <p class="container__project__item__content__paragraphe">
-                {{ description }}
-            </p>
-          </div>
+  <router-link class="link" :to="url">
+    <transition name="fade">
+        <div v-if="loaded">
+          <div class="container__project__item">
+              <div class="container__project__item__content">
+                <img
+                  class="container__project__item__content__img"
+                  :src="img"
+                  alt="image projet"
+                >
+                <h2 class="container__project__item__content__title">{{ title }}</h2>
+                <p class="container__project__item__content__paragraphe">
+                    {{ description }}
+                </p>
+              </div>
+            </div>
         </div>
-    </div>
-  </transition>
+    </transition>
+  </router-link>
 </template>
 
 <script>
 export default {
   name: 'CardProject',
-  props: ['url', 'title', 'description', 'classbg'],
+  props: {
+    url: String,
+    img: String,
+    title: String,
+    description: String,
+  },
   data() {
     return {
       loaded: false
@@ -64,38 +71,42 @@ export default {
         transition: .5s;
        }
       &__title {
-        text-align: left;
+        text-align: center;
         background: #fff;
-        padding: 1rem 0 0 1rem;
+        padding: 0.5rem 0 0 1rem;
         margin: 0;
-        color: #645175;
+        color: rgb(155, 106, 255);
         font-weight: bold;
-        font-size: 1.2rem;
+        font-size: 1.3rem;
         position: relative;
+        font-family: 'Fjalla One', sans-serif;
       }
       &__paragraphe {
         text-align: left;
         position: relative;
         padding: 0.3rem 1rem;
-        font-size: 0.8rem;
+        font-size: 0.9rem;
         line-height: 15px;
-        color: #867a91;
         z-index: 1;
         }
       }
     }
   }
 
-.fade-enter-active {
-  transition: all .8s ease;
-}
-.fade-leave-active {
-  transition: all .8s cubic-bezier(1.0, 0.5, 0.8, 1.0);
-}
-.fade-enter, .slide-fade-leave-to
-/* .slide-fade-leave-active below version 2.1.8 */ {
-  transform: translateY(200px);
-  opacity: 0;
-}
+  .link {
+    text-decoration: none;
+  }
+
+  .fade-enter-active {
+    transition: all .8s ease;
+  }
+  .fade-leave-active {
+    transition: all .8s cubic-bezier(1.0, 0.5, 0.8, 1.0);
+  }
+  .fade-enter, .slide-fade-leave-to
+  /* .slide-fade-leave-active below version 2.1.8 */ {
+    transform: translateY(200px);
+    opacity: 0;
+  }
 
 </style>

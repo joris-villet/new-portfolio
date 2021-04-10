@@ -31,14 +31,15 @@ export default {
   name: 'NavBar',
   data () {
     return {
-      home: true
+      home: true,
+      path: this.$route.path
     }
   },
   created() {
-    this.route()
     window.addEventListener('scroll', this.hideImg);
   },
   mounted(){
+    this.getPath()
     window.addEventListener('scroll', () => {
       const nav = document.querySelector('.navbar');
       if (window.scrollY > 50) nav.style.height = "80px";
@@ -46,13 +47,12 @@ export default {
     });
   },
   methods: {
-    route: function() {
-      if (this.$route.name === "About") {
-        this.home = false;
-      }
+    getPath: function() {
+      if (this.path !== "/") this.home = false;
+      else this.home = true;
     },
     hideImg: function() {
-      if (this.$route.name === "About") {
+      if (this.path === "/about") {
         const img = document.querySelector('.nav-border')
         if (window.scrollY > 170) {
           img.style.opacity = "1";
@@ -134,9 +134,9 @@ export default {
           display: inline-block;
           margin: 0;
           padding: .5rem 1.5rem;
-          color: #6416ff;
+          color: #915bfd;
           border: 2px solid transparent;
-          font-size: 1.3rem;
+          font-size: 1.1rem;
           font-weight: bold;
           text-decoration: none;
 
@@ -156,7 +156,7 @@ export default {
     color: #fff;
     cursor: pointer;
     outline: none;
-    font-size: 1.3rem;
+    font-size: 1.1rem;
     font-weight: bold;
     border: none;
     border-radius: 5rem;
