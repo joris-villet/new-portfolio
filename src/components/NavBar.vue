@@ -55,7 +55,7 @@ export default {
       if (this.$route.name === "About") {
         const img = document.querySelector('.nav-border')
         if (window.scrollY > 170) {
-          setTimeout(() => { img.style.opacity = "1", 500})
+          img.style.opacity = "1";
         }
         else {
           img.style.opacity = "0"
