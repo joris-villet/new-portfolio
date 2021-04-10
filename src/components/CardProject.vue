@@ -63,12 +63,14 @@ export default {
   
       &__content {
         &:hover > &__img {
-          filter: grayscale(70%);
+          filter: grayscale(0%);
           transform: scale3d(1.2, 1.2, 1.2) rotate(2deg);
         }
       &__img {
         width: 100%;
         transition: .5s;
+        height: 220px;
+        filter: grayscale(80%);
        }
       &__title {
         text-align: center;

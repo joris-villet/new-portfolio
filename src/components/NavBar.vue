@@ -99,6 +99,7 @@ export default {
       font-size: 2rem;
       margin: 0 2rem 0 0;
       color: #915bfd;
+      text-shadow: 3px 3px 3px rgba(0, 0, 0, 0.2);
     }
 
     &-border {
@@ -142,7 +143,7 @@ export default {
 
           &:hover {
             border: 2px solid #6416ff;
-            border-radius: 5rem;
+            border-radius: 15px;
           }
         }
       }
@@ -159,7 +160,7 @@ export default {
     font-size: 1.1rem;
     font-weight: bold;
     border: none;
-    border-radius: 5rem;
+    border-radius: 15px;
     box-shadow: 5px 5px 10px rgba(0,0,0,0.2);
     background: rgb(100,22,255);
     background: linear-gradient(90deg, rgba(100,22,255,0.4) 0%, rgba(55,45,255,1) 100%);

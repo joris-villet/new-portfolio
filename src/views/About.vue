@@ -22,7 +22,7 @@
             le Web Design. <br><br> 
 
 
-            <img class="teateam" src="@/assets/images/moodboard-tea-team.jpg" alt="image projet tea team">
+            <img class="teateam" src="@/assets/img/moodboard-tea-team.jpg" alt="image projet tea team">
 
 
             Après cela je me suis tourné dans le développement pour pouvoir aller beaucoup plus loin dans les projets
@@ -52,13 +52,13 @@ export default {
     }
   },
   created() {
-    window.addEventListener('scroll', this.hideImg);
+    window.addEventListener('scroll', this.hideImgProfil);
   },
   mounted() {
     this.show = true;
   },
   methods: {
-    hideImg: function() {
+    hideImgProfil: function() {
       if (this.$route.name === "About") {
         const img = document.querySelector('.header-border')
         if (window.scrollY > 170) {

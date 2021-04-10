@@ -13,12 +13,8 @@ export default {
   mounted() {
     const btnTop = document.querySelector('.btnTop');
     window.addEventListener('scroll', () => {
-      if (window.scrollY > 700) {
-          btnTop.style.opacity = "1";
-      }
-      else {
-          btnTop.style.opacity = "0";
-      }
+      if (window.scrollY > 700) btnTop.style.opacity = "1";
+      else btnTop.style.opacity = "0";
     });
   },
   methods: {
@@ -48,7 +44,7 @@ export default {
   }
 
   p {
-    color: #81758c;
+    color: #777679;
   }
 
   .btnTop {
@@ -58,15 +54,16 @@ export default {
     bottom: 2rem;
     cursor: pointer;
     right: 8rem;
-    border-radius: 50%;
+    border-radius: 10px;
     width: 50px;
     height: 50px;
-    color: #fff;
+    color: rgb(100,22,255);
     outline: none;
-    border: none;
+    border: 3px solid rgb(100,22,255);
     box-shadow: 5px 5px 10px rgba(0,0,0,0.2);
-    background: rgb(100,22,255);
-    background: linear-gradient(90deg, rgba(100,22,255,0.4) 0%, rgba(55,45,255,1) 100%);
+    background: #fff;
+    text-transform: uppercase;
+    font-weight: bold;
   }
 
   .fade-enter-active,
