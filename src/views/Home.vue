@@ -23,7 +23,7 @@
         url="https://mcvperformance.fr"
         :img="imageMcvperf"
         title="MCVPerformance"
-        description="Premier projet free pour un client du secteur automobile. Je commence à travailler sur la version 2 qui sera build avec NuxtJs."
+        description="Premier projet solo et free pour un client du secteur automobile. Je commence à travailler sur la version 2 qui sera build avec NuxtJs."
       />
       <CardProject
         url="/about"

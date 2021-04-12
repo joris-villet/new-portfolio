@@ -16,15 +16,45 @@
               <h2 class="header-title">Hello !!</h2>
             </div>
           </header>
-          <p class="header-title-content">
+          <p class="header-content">
             Je m'appelle Joris et bienvenue sur mon portfolio.<br><br>
-            Depuis quelques années en reconversion dans l'informatique, passionné par le goût et les couleurs, j'ai d'abord étudié
-            le Web Design. <br><br> 
+            Depuis quelques années en reconversion dans le Web, passionné par le goût et les couleurs, j'ai d'abord étudié
+            le Web Design.
+          </p>
 
+          <ProjectProfil
+            @get-img-full-size="getImgFullSize"
+            title="Découverte de Photoshop et Illustrator"
+          >
+            <h3 class="header-title-project">TeaTeam</h3>
+            <p class="header-content-project">
+              La première image est la réalisation d'une Moodboard dans le but futur était de créer un logo pour
+              notre promo de web designer fan de thé.
+            </p>
+            <h3 class="header-title-project">The Moon</h3>
+            <p class="header-content-project">
+              Photo montage avec Photoshop pour expérimenter la puissance des filtres, effets et calques.
+            </p>
+            <h3 class="header-title-project">The lion king</h3>
+            <p class="header-content-project">
+              Pratique sur le détourage à la plume avec illustrator, un régal !!
+            </p>
+            <h3 class="header-title-project">MCVPerformance</h3>
+            <p class="header-content-project">
+              Moodboard de mon projet solo et free pour un client travaillant dans le secteur automobile.
+              J'ai commencé ce projet en web design, mais je l'ai réellement fini après ma formation web developper.
+            </p>
+          </ProjectProfil>
 
-            <img class="teateam" src="@/assets/img/moodboard-tea-team.jpg" alt="image projet tea team">
+          <ModalImage
+            :img="srcImg"
+            :alt="altImg"
+            :activeModal="activeModal"
+            @hide-modal="hideModal"
+            :width="sizeImg"
+          />
 
-
+          <p>
             Après cela je me suis tourné dans le développement pour pouvoir aller beaucoup plus loin dans les projets
             en manipulant les fonctionnalités.
             <br><br>
@@ -41,14 +71,19 @@
 
 <script>
 import NavBar from '@/components/NavBar'
+import ProjectProfil from '@/components/ProjectProfil'
+import ModalImage from '@/components/ModalImage'
+
 export default {
   name: 'About',
-  components: {
-    NavBar
-  },
+  components: { NavBar, ProjectProfil, ModalImage },
   data() {
     return {
-      show: false
+      show: false,
+      activeModal: false,
+      srcImg: '',
+      altImg: '',
+      sizeImg: ''
     }
   },
   created() {
@@ -68,6 +103,16 @@ export default {
           img.style.opacity = "1"
         }
       }
+    },
+    getImgFullSize(payload) {
+      console.log(payload)
+      this.sizeImg = '20%'
+      this.srcImg = payload.src;
+      this.altImg = payload.alt;
+      this.activeModal = true;
+    },
+    hideModal() {
+      this.activeModal = false;
     }
   }
 }
@@ -75,8 +120,11 @@ export default {
 
 <style lang="scss" scoped>
   .about {
-    font-size: 1.5rem;
-    color: #9387aa;
+    font-size: 1.3rem;
+
+    &-p {
+      color:#b8b8b8;
+    }
   }
   .container {
     max-width: 1200px;
@@ -108,18 +156,32 @@ export default {
       margin: 0;
       font-size: 4rem;
       font-style: italic;
-      color: rgb(172, 172, 172);
+      color: #915bfd;
+
+      &-project {
+        color: #915bfd;
+        margin: 0;
+        font-size: 1.3rem;
+      }
+    }
+
+    &-content {
+      font-family: 'Fjalla One', sans-serif;
+      color:#b8b8b8;
+      text-align: center;
+
+      &-project {
+        color:#b8b8b8;
+        font-size: 1rem;
+        width: 70%;
+        margin: 0.5rem 0 1.5rem 0;
+      }
     }
 
     &-img {
       width: 105%;
       height: auto;
     }
-  }
-
-  .teateam {
-    width: 60%;
-    box-shadow: 10px 10px 30px rgba(0,0,0,0.2);
   }
 
   .slide-enter-active {
