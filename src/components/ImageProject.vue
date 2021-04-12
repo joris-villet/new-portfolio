@@ -23,10 +23,6 @@ export default {
       &:hover {
          opacity: 0.5;
       }
-
-      &:active {
-         opacity: 0;
-      }
    }
 
    .isActive {

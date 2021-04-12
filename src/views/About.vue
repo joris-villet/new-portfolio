@@ -51,7 +51,7 @@
             :alt="altImg"
             :activeModal="activeModal"
             @hide-modal="hideModal"
-            :width="sizeImg"
+            :sizeImg="activeSize"
           />
 
           <p>
@@ -83,7 +83,16 @@ export default {
       activeModal: false,
       srcImg: '',
       altImg: '',
-      sizeImg: ''
+      activeSize: {
+        width: '70%',
+        padding: '3rem',
+        background: '#fff',
+        zIndex: '9',
+        position: 'absolute',
+        top: '50%',
+        left: '50%',
+        transform: 'translate(-50%, -50%)'
+      }
     }
   },
   created() {
@@ -106,8 +115,19 @@ export default {
     },
     getImgFullSize(payload) {
       console.log(payload)
-      this.sizeImg = '20%'
-      this.srcImg = payload.src;
+      if (payload.id === 0) {
+        this.activeSize.width = '50%';
+      }
+      else if (payload.id === 1) {
+        this.activeSize.width = '60%';
+      }
+      else if (payload.id === 2) {
+        this.activeSize.width = '30%';
+      }
+      else if (payload.id === 3) {
+        this.activeSize.width = '20%';
+      }
+      this.srcImg = payload.img;
       this.altImg = payload.alt;
       this.activeModal = true;
     },

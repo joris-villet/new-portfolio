@@ -2,8 +2,8 @@
    <transition name="fade">
       <div @click="$emit('hide-modal')" v-if="activeModal" class="modal">
          <div class="overlay">
-            <div class="container-image">
-               <img :width="sizeImg" :src="img" :alt="alt">
+            <div :style="sizeImg" class="container-image">
+               <img :src="img" :alt="alt">
             </div>
          </div>
       </div>
@@ -17,7 +17,7 @@ export default {
       img: String,
       alt: String,
       activeModal: Boolean,
-      width: String
+      sizeImg: Object
    },
 }
 </script>
@@ -40,8 +40,9 @@ export default {
    }
 
    .container-image {
-      width: 70%;
-      margin: 0 auto;
+      width: 50%;
+      padding: 3rem;
+      background: #fff;
       z-index: 9;
       position: absolute;
       top: 50%;
@@ -56,7 +57,7 @@ export default {
    }
 
    .fade-enter-active {
-    transition: all .8s ease;
+    transition: all .6s ease;
    }
 
    .fade-leave-active {
@@ -66,5 +67,6 @@ export default {
    .fade-enter, .fade-fade-leave-to
    /* .slide-fade-leave-active below version 2.1.8 */ {
       opacity: 0;
+      width: 0;
    }
 </style>

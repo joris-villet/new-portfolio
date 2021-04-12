@@ -5,7 +5,14 @@
             <slot></slot>
       </div>
       <div class="project-images">
-            <ImageProject
+         <ImageProject
+            v-for="(project, index) of dataProject"
+            :key="index"
+            @get-img-full-size="getImgFullSize({id: index, img: project.img, alt: project.alt})"
+            :img="project.img"
+            :alt="project.alt"
+         />
+            <!-- <ImageProject
                @get-img-full-size="getImgFullSize"
                :img="imageTeaTeam"
                alt="Photo Moodboard du projet Tea Team"
@@ -13,18 +20,18 @@
             <ImageProject
                @get-img-full-size="getImgFullSize"
                :img="imageLune"
-               alt="Photo Moodboard du projet Tea Team"
+               alt="Photo lune"
             />
             <ImageProject
                @get-img-full-size="getImgFullSize"
                :img="imageTheking"
-               alt="Photo Moodboard du projet Tea Team"
+               alt="Photo le roi lion"
             />
             <ImageProject
                @get-img-full-size="getImgFullSize"
                :img="imageMoodmcvperf"
-               alt="Photo Moodboard du projet Tea Team"
-            />
+               alt="Photo Moodboard du projet MCVPerformance"
+            /> -->
       </div>
    </div>
 </template>
@@ -49,6 +56,24 @@ export default {
          imageLune: ImageLune,
          imageTheking: ImageTheking,
          imageMoodmcvperf: ImageMoodmcvperf,
+         dataProject: [
+            {
+               img: ImageTeaTeam,
+               alt: "Photo Moodboard du projet Tea Team"
+            },
+            {
+               img: ImageLune,
+               alt: "Photo lune"
+            },
+            {
+               img: ImageTheking,
+               alt: "Photo le roi lion"
+            },
+            {
+               img: ImageMoodmcvperf,
+               alt: "Photo Moodboard du projet MCVPerformance"
+            }
+         ]
       }
    },
    methods: {
