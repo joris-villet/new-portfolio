@@ -12,26 +12,6 @@
             :img="project.img"
             :alt="project.alt"
          />
-            <!-- <ImageProject
-               @get-img-full-size="getImgFullSize"
-               :img="imageTeaTeam"
-               alt="Photo Moodboard du projet Tea Team"
-            />
-            <ImageProject
-               @get-img-full-size="getImgFullSize"
-               :img="imageLune"
-               alt="Photo lune"
-            />
-            <ImageProject
-               @get-img-full-size="getImgFullSize"
-               :img="imageTheking"
-               alt="Photo le roi lion"
-            />
-            <ImageProject
-               @get-img-full-size="getImgFullSize"
-               :img="imageMoodmcvperf"
-               alt="Photo Moodboard du projet MCVPerformance"
-            /> -->
       </div>
    </div>
 </template>
@@ -48,7 +28,8 @@ export default {
    props: {
       title: String,
       img: String,
-      alt: String
+      alt: String,
+      showImageProject: Boolean
    },
    data () {
       return {

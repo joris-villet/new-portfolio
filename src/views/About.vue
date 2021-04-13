@@ -18,8 +18,9 @@
           </header>
           <p class="header-content">
             Je m'appelle Joris et bienvenue sur mon portfolio.<br><br>
-            Depuis quelques années en reconversion dans le Web, passionné par le goût et les couleurs, j'ai d'abord étudié
-            le Web Design.
+            Depuis quelques années en reconversion dans l'objectif d'être acteur du Web, je suis passionné par les couleurs, les animations, le code<br>
+            et toute la logique qui se cache derrière tout ça !<br><br>
+            Pour bien débuter j'ai suivi une formation dans le <strong>Web Design.</strong> 
           </p>
 
           <ProjectProfil
@@ -35,7 +36,7 @@
             <p class="header-content-project">
               Photo montage avec Photoshop pour expérimenter la puissance des filtres, effets et calques.
             </p>
-            <h3 class="header-title-project">The lion king</h3>
+            <h3 class="header-title-project">The Lion King</h3>
             <p class="header-content-project">
               Pratique sur le détourage à la plume avec illustrator, un régal !!
             </p>
@@ -46,6 +47,21 @@
             </p>
           </ProjectProfil>
 
+
+          <div class="project-video">
+            <h2 class="project-video-title">After Effect</h2>
+            <p class="project-video-content">
+              After Effect pour le motion design est également abordé en web design, même si je vous l'accorde mon montage n'est pas digne d'un Spielberg.
+            </p>
+            <div class="container-video">
+            <video class="video" width="500" height="350" onloadstart="this.volume=0.2" controls>
+                <source :src="myVideo" type="video/mp4">
+                Your browser does not support the video tag.
+              </video> 
+            </div>
+          </div>
+     
+
           <ModalImage
             :img="srcImg"
             :alt="altImg"
@@ -55,14 +71,24 @@
           />
 
           <p>
-            Après cela je me suis tourné dans le développement pour pouvoir aller beaucoup plus loin dans les projets
-            en manipulant les fonctionnalités.
-            <br><br>
+            Après cela je me suis tourné dans le développement web pour pouvoir aller beaucoup plus loin 
+            et mettre mes réalisations en code afin de les partager à tous..
+          </p>
+          <p>
+            Je vous renvoie sur la page  
+            <router-link to="/">
+              Home
+            </router-link>
+            pour visualiser mes projets développement.
+          </p>
+          <p>
             Toutes ces compétences m'apportent de l'appétence dans le milieu UI comme UX, qui me donnera
-              je l'espère un élan dans le début de ma carrière de <strong>développeur Junior..</strong>
-              <br><br>
+            je l'espère un élan dans le début de ma carrière de <strong>développeur web Junior..</strong>
+          </p>
+          <p>
             Bonne visite !
-          </p> 
+          </p>
+      
         </div>
       </div>
     </transition>
@@ -73,12 +99,14 @@
 import NavBar from '@/components/NavBar'
 import ProjectProfil from '@/components/ProjectProfil'
 import ModalImage from '@/components/ModalImage'
+import VideoFoodTruck from '@/assets/video/foodtruck.mp4'
 
 export default {
   name: 'About',
   components: { NavBar, ProjectProfil, ModalImage },
   data() {
     return {
+      myVideo: VideoFoodTruck,
       show: false,
       activeModal: false,
       srcImg: '',
@@ -106,27 +134,19 @@ export default {
       if (this.$route.name === "About") {
         const img = document.querySelector('.header-border')
         if (window.scrollY > 170) {
-          img.style.opacity = "0"
+          img.style.opacity = "0";
         }
         else {
-          img.style.opacity = "1"
+          img.style.opacity = "1";
         }
       }
     },
     getImgFullSize(payload) {
       console.log(payload)
-      if (payload.id === 0) {
-        this.activeSize.width = '50%';
-      }
-      else if (payload.id === 1) {
-        this.activeSize.width = '60%';
-      }
-      else if (payload.id === 2) {
-        this.activeSize.width = '30%';
-      }
-      else if (payload.id === 3) {
-        this.activeSize.width = '20%';
-      }
+      if (payload.id === 0) this.activeSize.width = '50%';
+      else if (payload.id === 1) this.activeSize.width = '60%';
+      else if (payload.id === 2) this.activeSize.width = '30%';
+      else if (payload.id === 3) this.activeSize.width = '20%';
       this.srcImg = payload.img;
       this.altImg = payload.alt;
       this.activeModal = true;
@@ -142,8 +162,18 @@ export default {
   .about {
     font-size: 1.3rem;
 
-    &-p {
+    p {
       color:#b8b8b8;
+    }
+
+    strong {
+      font-style: italic;
+      color: #d2bcff;
+    }
+
+    a {
+      text-decoration: none;
+      color: #915bfd;
     }
   }
   .container {
@@ -202,6 +232,32 @@ export default {
       width: 105%;
       height: auto;
     }
+  }
+
+  .project-video {
+    margin: 8rem auto;
+
+    &-title {
+      text-align: center;
+      margin: 2rem auto;  
+      font-weight: bold;
+      color: #915bfd;
+    }
+
+    &-content {
+      text-align: center;
+      font-size: 1rem;
+    }
+  }
+
+
+  .container-video {
+    text-align: center;
+  }
+
+  .video {
+    // border-radius: 10px;
+    // box-shadow: 10px 10px 30px rgba(0,0,0,0.2);
   }
 
   .slide-enter-active {
