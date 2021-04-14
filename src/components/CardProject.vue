@@ -56,7 +56,7 @@ export default {
       height: 350px;
       background: #fff;
       border-radius: 2rem;
-      box-shadow: 10px 10px 30px rgba(0,0,0,0.2);
+      box-shadow: 2px 2px 4px rgba(0,0,0,0.2);
       overflow: hidden;
   
       &__content {
