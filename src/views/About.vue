@@ -3,7 +3,7 @@
     <NavBar />
     <transition name="slide">
       <div v-if="show">
-        <div class="container">
+        <Container>
           <header>
             <div class="header">
               <div class="header-border">
@@ -18,8 +18,8 @@
           </header>
           <p class="header-content">
             Je m'appelle Joris et bienvenue sur mon portfolio.<br><br>
-            Depuis quelques années en reconversion dans l'objectif d'être acteur du Web, je suis passionné par les couleurs, les animations, le code<br>
-            et toute la logique qui se cache derrière tout ça !<br><br>
+            Depuis quelques années en reconversion dans l'objectif d'être acteur du Web, je suis passionné par les couleurs, les animations, le code, <br>
+            le travail et la logique qui se cache derrière tout ça !<br><br>
             Pour bien débuter j'ai suivi une formation dans le <strong>Web Design.</strong> 
           </p>
 
@@ -70,26 +70,23 @@
             :sizeImg="activeSize"
           />
 
-          <p>
-            Après cela je me suis tourné dans le développement web pour pouvoir aller beaucoup plus loin 
-            et mettre mes réalisations en code afin de les partager à tous..
-          </p>
-          <p>
-            Je vous renvoie sur la page  
-            <router-link to="/">
-              Home
-            </router-link>
-            pour visualiser mes projets développement.
-          </p>
-          <p>
-            Toutes ces compétences m'apportent de l'appétence dans le milieu UI comme UX, qui me donnera
-            je l'espère un élan dans le début de ma carrière de <strong>développeur web Junior..</strong>
-          </p>
-          <p>
-            Bonne visite !
-          </p>
-      
-        </div>
+          <div class="text-center">
+            <p>
+              Après cela j'ai enchaîné dans le développement web pour pouvoir aller plus loin 
+              et mettre mes réalisations en code afin de les partager à tous..
+            </p>
+            <p>
+              Toutes ces compétences m'apportent de l'appétence dans le milieu UI comme UX, qui me donnera
+              je l'espère un élan dans le début de ma carrière de <strong>développeur web !</strong>
+            </p>
+            <p>
+              Je vous renvoie sur la page <router-link to="/">Home</router-link> pour visualiser mes projets de développement et mon coding freestyle
+              si ce n'est pas déjà fait.
+            </p>
+            <p class="m-8">Bonne visite !</p>
+          </div>
+
+        </Container>
       </div>
     </transition>
   </div>
@@ -100,10 +97,11 @@ import NavBar from '@/components/NavBar'
 import ProjectProfil from '@/components/ProjectProfil'
 import ModalImage from '@/components/ModalImage'
 import VideoFoodTruck from '@/assets/video/foodtruck.mp4'
+import Container from '@/components/Container'
 
 export default {
   name: 'About',
-  components: { NavBar, ProjectProfil, ModalImage },
+  components: { NavBar, ProjectProfil, ModalImage, Container },
   data() {
     return {
       myVideo: VideoFoodTruck,
@@ -130,7 +128,7 @@ export default {
     this.show = true;
   },
   methods: {
-    hideImgProfil: function() {
+    hideImgProfil() {
       if (this.$route.name === "About") {
         const img = document.querySelector('.header-border')
         if (window.scrollY > 170) {
@@ -160,7 +158,7 @@ export default {
 
 <style lang="scss" scoped>
   .about {
-    font-size: 1.3rem;
+    font-size: 1rem;
 
     p {
       color:#b8b8b8;
@@ -175,12 +173,6 @@ export default {
       text-decoration: none;
       color: #915bfd;
     }
-  }
-  .container {
-    max-width: 1200px;
-    margin: 2rem auto;
-    padding: 12rem 0;
-    height: auto;
   }
 
   .header {
@@ -255,19 +247,21 @@ export default {
     text-align: center;
   }
 
-  .video {
-    // border-radius: 10px;
-    // box-shadow: 10px 10px 30px rgba(0,0,0,0.2);
+  .text-center {
+    text-align: center;
   }
 
-  .slide-enter-active {
-    transition: all .8s ease;
+  .m-8 {
+    margin: 4rem auto;
+    color: #915bfd!important;
+    font-size: 2rem;
   }
-  .slide-leave-active {
-    transition: all .8s cubic-bezier(1.0, 0.5, 0.8, 1.0);
+
+  .slide-enter-active, .slide-leave-active {
+    transition: all .7s cubic-bezier(1.0, 0.5, 0.8, 1.0);
   }
-  .slide-enter, .slide-fade-leave-to
-  /* .slide-fade-leave-active below version 2.1.8 */ {
+
+  .slide-enter, .slide-fade-leave-to {
     transform: translateY(400px);
     opacity: 0;
   }

@@ -3,18 +3,26 @@
     <transition name="fade" mode="out-in">
       <router-view/>
     </transition>
-    <button class="btnTop" @click="scrollTop">top</button>
+    <!-- <button @click="scrollTop"><i class="fas fa-arrow-up btnTop"></i></button> -->
+    <i @click="scrollTop" class="fas fa-arrow-up btnTop"></i>
   </div>
 </template>
 
 <script>
 
 export default {
+  name: 'App',
   mounted() {
     const btnTop = document.querySelector('.btnTop');
     window.addEventListener('scroll', () => {
-      if (window.scrollY > 700) btnTop.style.opacity = "1";
-      else btnTop.style.opacity = "0";
+      if (window.scrollY > 700) {
+        btnTop.style.opacity = "1";
+        btnTop.style.fontSize =  '1.5rem';
+      } 
+      else {
+        btnTop.style.opacity = "0";
+        btnTop.style.fontSize =  'inherit';
+      } 
     });
   },
   methods: {
@@ -37,9 +45,8 @@ export default {
   #app {
     background: #f9f9f9;
     box-sizing: border-box;
-    font-family: verdana;
-    height: 3000px;
-    // height: auto;
+    // height: 3000px;
+    height: auto;
     font-family: 'Fjalla One', sans-serif;
   }
 
@@ -49,32 +56,31 @@ export default {
 
   .btnTop {
     position: fixed;
-    opacity: 0;
-    transition: .9s;
     bottom: 2rem;
-    cursor: pointer;
     right: 8rem;
+    opacity: 0;
+    transition: .4s;
+    cursor: pointer;
+    font-size: 0;
+    padding: 1rem;
     border-radius: 10px;
-    width: 50px;
-    height: 50px;
     color: rgb(100,22,255);
-    outline: none;
-    border: 3px solid rgb(100,22,255);
     box-shadow: 5px 5px 10px rgba(0,0,0,0.2);
-    background: #fff;
-    text-transform: uppercase;
-    font-weight: bold;
   }
 
-  .fade-enter-active,
-  .fade-leave-active {
-    transition-duration: 0.3s;
-    transition-property: opacity;
-    transition-timing-function: ease;
-}
+  // .fade-enter-active,
+  // .fade-leave-active {
+  //   transition-duration: 0.3s;
+  //   transition-property: opacity;
+  //   transition-timing-function: ease;
+  // }
 
-.fade-enter,
-.fade-leave-active {
-  opacity: 0
-}
+  .fade-enter-active, .fade-leave-active {
+    transition: all .8s cubic-bezier(1.0, 0.5, 0.8, 1.0);
+  }
+
+  .fade-enter,
+  .fade-leave-active {
+    opacity: 0;
+  }
 </style>

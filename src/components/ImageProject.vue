@@ -19,6 +19,9 @@ export default {
       margin: 1rem auto;
       cursor: pointer;
       transition: .2s ease-in-out;
+      margin: 0;
+      align-self: center;
+      justify-self: end;
 
       &:hover {
          opacity: 0.5;

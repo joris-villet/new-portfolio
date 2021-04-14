@@ -142,7 +142,7 @@ export default {
           text-decoration: none;
 
           &:hover {
-            border: 2px solid #6416ff;
+            border: 2px solid #915bfd;
             border-radius: 15px;
           }
         }

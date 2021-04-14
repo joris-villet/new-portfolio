@@ -45,6 +45,8 @@ import TrueProject from '@/components/TrueProject'
 import ImageMcvperf from '@/assets/img/logo-solo-mcv.png'
 import ImageIphone from '@/assets/img/iphone.png'
 import ImageShop from '@/assets/img/shop.png'
+
+
 export default {
   name: "Home",
   components: { NavBar, CardProject, TrueProject },
