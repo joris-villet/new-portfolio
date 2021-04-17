@@ -94,7 +94,7 @@ export default {
    }
 
    .fa-linkedin {
-      color: rgb(52, 164, 255);
+      color: #2a8cdb;
    }
 
    .fa-at {
