@@ -95,4 +95,12 @@ export default {
          width: 70%;
       }
    }
+
+   @media (max-width: 550px) {
+      .project {
+         flex-direction: column;
+         width: 80%;
+         margin: 5rem auto;
+      }
+   }
 </style>

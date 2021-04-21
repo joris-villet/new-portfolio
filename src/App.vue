@@ -14,16 +14,22 @@ export default {
   name: 'App',
   mounted() {
     const btnTop = document.querySelector('.btnTop');
-    window.addEventListener('scroll', () => {
-      if (window.scrollY > 700) {
-        btnTop.style.opacity = "1";
-        btnTop.style.fontSize =  '1.5rem';
-      } 
-      else {
-        btnTop.style.opacity = "0";
-        btnTop.style.fontSize =  'inherit';
-      } 
-    });
+    if (window.screen.availWidth > 550) {
+
+      window.addEventListener('scroll', () => {
+        if (window.scrollY > 700) {
+          btnTop.style.opacity = "1";
+          btnTop.style.fontSize =  '1.5rem';
+        } 
+        else {
+          btnTop.style.opacity = "0";
+          btnTop.style.fontSize =  'inherit';
+        } 
+      });
+    }
+    else {
+      btnTop.style.display = "none";
+    }
   },
   methods: {
     scrollTop: function() {
@@ -40,11 +46,12 @@ export default {
   body {
     margin: 0;
     padding: 0;
+    background: #f9f9f9;
+    box-sizing: border-box;
   }
   
   #app {
-    background: #f9f9f9;
-    box-sizing: border-box;
+    
     // height: 3000px;
     height: auto;
     font-family: 'Fjalla One', sans-serif;
@@ -83,4 +90,5 @@ export default {
   .fade-leave-active {
     opacity: 0;
   }
+    
 </style>

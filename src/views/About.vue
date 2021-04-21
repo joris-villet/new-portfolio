@@ -1,9 +1,11 @@
 <template>
   <div class="about">
-    <NavBar />
+    <NavBar @clickBurger="hideBody" />
     <transition name="slide">
       <div v-if="show">
-        <Container>
+        <div :class="{noBody: hidden}">
+
+        <Container class="container">
           <header>
             <div class="header">
               <div class="header-border">
@@ -76,17 +78,30 @@
               et mettre mes réalisations en code afin de les partager à tous..
             </p>
             <p>
-              Toutes ces compétences m'apportent de l'appétence dans le milieu UI comme UX, qui me donnera
-              je l'espère un élan dans le début de ma carrière de <strong>développeur web !</strong>
-            </p>
-            <p>
               Je vous renvoie sur la page <router-link to="/">Home</router-link> pour visualiser mes projets de développement et mon coding freestyle
               si ce n'est pas déjà fait.
+            </p>
+            <div class="stack">
+              <h3 class="stack-title">Mes Technos</h3>
+              <div class="dev-icon">
+                <i class="dev-icon-html fab fa-html5"></i>
+                <i class="dev-icon-css fab fa-css3-alt"></i>
+                <i class="dev-icon-js fab fa-js"></i>
+                <img class="dev-icon-vuejs" :src="iconVuejs" alt="icon vuejs">
+                <i class="dev-icon-nodejs fab fa-node-js"></i>
+                <img class="dev-icon-postgres" :src="iconPostgres" alt="icon postgres">
+                <img class="dev-icon-sqitch" :src="iconSqitch" alt="icon sqitch">
+              </div>
+            </div>
+            <p>
+              Toutes ces compétences m'apportent de l'appétence dans le milieu UI comme UX, qui me donnera
+              je l'espère un élan dans le début de ma carrière de <strong>développeur web !</strong>
             </p>
             <p class="m-8">Bonne visite !</p>
           </div>
 
         </Container>
+        </div>
       </div>
     </transition>
   </div>
@@ -98,17 +113,24 @@ import ProjectProfil from '@/components/ProjectProfil'
 import ModalImage from '@/components/ModalImage'
 import VideoFoodTruck from '@/assets/video/foodtruck.mp4'
 import Container from '@/components/Container'
+import IconPostgres from '@/assets/img/postgres.png'
+import IconSqitch from '@/assets/img/sqitch.png'
+import IconVuejs from '@/assets/img/vuejs.png'
 
 export default {
   name: 'About',
   components: { NavBar, ProjectProfil, ModalImage, Container },
   data() {
     return {
+      iconVuejs: IconVuejs,
+      iconPostgres: IconPostgres,
+      iconSqitch: IconSqitch,
       myVideo: VideoFoodTruck,
       show: false,
       activeModal: false,
       srcImg: '',
       altImg: '',
+      hidden: false,
       activeSize: {
         width: '70%',
         padding: '3rem',
@@ -151,14 +173,25 @@ export default {
     },
     hideModal() {
       this.activeModal = false;
+    },
+    hideBody() {
+      setTimeout(() => {
+        this.hidden = !this.hidden;
+      }, 300)
     }
   }
 }
 </script>
 
 <style lang="scss" scoped>
-  .about {
-    font-size: 1rem;
+
+    .noBody {
+      display: none;
+    }
+
+    .about {
+      font-size: 1rem;
+      color:#b8b8b8;
 
     p {
       color:#b8b8b8;
@@ -177,20 +210,29 @@ export default {
 
   .header {
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     margin: 0 0 0 5rem;
     width: 40%;
 
     &-border {
-      margin: 0 auto;
+      margin: 0;
       overflow: hidden;
       border: 2px solid rgb(100,22,255);
       border-radius: 50%;
       box-shadow: 5px 5px 10px rgba(0,0,0,0.2);
-      width: 200px;
-      height: 200px;
+      max-width: 200px;
+      min-width: 80px;
+      height: auto;
       opacity: 1;
       transition: .3s ease-in;
+      display: flex;
+      justify-content: center;
+      align-self: center;
+    }
+
+    &-img {
+      width: 100%;
+      height: auto;
     }
 
     &-title {
@@ -219,15 +261,10 @@ export default {
         margin: 0.5rem 0 1.5rem 0;
       }
     }
-
-    &-img {
-      width: 105%;
-      height: auto;
-    }
   }
 
   .project-video {
-    margin: 8rem auto;
+    margin: 12rem auto;
 
     &-title {
       text-align: center;
@@ -241,7 +278,6 @@ export default {
       font-size: 1rem;
     }
   }
-
 
   .container-video {
     text-align: center;
@@ -257,6 +293,61 @@ export default {
     font-size: 2rem;
   }
 
+  .stack {
+    margin: 4rem auto;
+    max-width: 600px;
+    text-align: left;
+  }
+
+  .stack-title {
+    margin: 0;
+    color: #915bfd;
+    font-style: italic;
+  }
+
+  .dev-icon {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2rem 2rem 1rem 2rem;
+    border-bottom: 2px solid #915bfd;
+    border-radius: 10px;
+  }
+
+  .fab {
+    font-size: 3rem;
+  }
+
+  .dev-icon-postgres, .dev-icon-sqitch {
+    width: 35px;
+    height: 40px;
+  }
+
+  .dev-icon-vuejs {
+    width: 45px;
+  }
+
+  .dev-icon-html {
+    color: orangered;
+  }
+
+  .dev-icon-css {
+    color: rgb(52, 140, 240);
+  }
+
+  .dev-icon-js {
+    color: rgb(255, 207, 50);
+  }
+  
+  .dev-icon-nodejs {
+    color: rgb(129, 202, 18);
+  }
+
+  .dev-icon-git {
+    color: rgb(252, 59, 0)
+  }
+
   .slide-enter-active, .slide-leave-active {
     transition: all .7s cubic-bezier(1.0, 0.5, 0.8, 1.0);
   }
@@ -265,4 +356,91 @@ export default {
     transform: translateY(400px);
     opacity: 0;
   }
+
+  @media (max-width: 550px) {
+
+    .container {
+      padding: 0;
+    }
+
+    .header {
+      width: 80%;
+      margin: 2rem auto;
+
+      &-border {
+        max-width: 100px;
+      }
+      
+      &-title {
+        font-size: 3rem;
+        margin-right: 3rem;
+      }
+
+      &-content {
+        width: 80%;
+        margin: 0 auto;
+        text-align: left;
+
+        &-project {
+          width: 100%;
+        }
+      }
+    }
+
+    .project-video {
+      margin: 8rem auto;
+    }
+
+    .project-images {
+      width: 100%;
+    }
+
+    .project-video-content {
+      text-align: left;
+      width: 80%;
+      margin: 1rem auto;
+    }
+
+    .image {
+      justify-self: start;
+    }
+
+    .container-video {
+      max-width: 80%;
+      margin: 0 auto;
+    }
+
+    .video {
+      margin-top: 2rem;
+      width: 100%;
+      min-width: 200px;
+      height: auto;
+    }
+
+    .text-center {
+      width: 80%;
+      margin: 0 auto;
+      text-align: left;
+    }
+
+    .dev-icon {
+      width: auto;
+    }
+
+    .fab {
+      font-size: 2rem;
+    }
+
+    .dev-icon-postgres, .dev-icon-sqitch {
+      width: 25px;
+      height: 30px;
+    }
+
+    .dev-icon-vuejs {
+      width: 35px;
+    }
+
+  }
+
+
 </style>

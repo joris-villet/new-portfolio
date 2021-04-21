@@ -134,4 +134,25 @@ export default {
       transform: translateY(100px);
       opacity: 0;
    }
+
+   @media (max-width: 550px) {
+
+      .container {
+         padding: 0;
+      }
+
+      .gradient {
+         margin: 0;
+      }
+
+      .title {
+         font-size: 2rem;
+      }
+
+      .text {
+         margin: 6rem auto;
+         font-size: 1.2rem;
+         width: 80%;
+      }
+   }
 </style>
