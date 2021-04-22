@@ -111,17 +111,14 @@ export default {
   display: block;
   margin: 0 auto;
   height: 100px;
-  font-size: 2rem;
+  font-size: 1.5rem;
   color: #fff;
   background: rgba(255, 255, 255, 0.3);
   text-align: center;
-  width: 50%;
 }
 
 .container {
   margin: 100px auto;
-  width: 500px;
-  height: 500px;
 }
 
 .container-phone {

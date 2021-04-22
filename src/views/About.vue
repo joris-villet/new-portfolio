@@ -425,6 +425,10 @@ export default {
       text-align: left;
     }
 
+    .stack {
+      max-width: 100%;
+    }
+
     .dev-icon {
       width: auto;
     }
