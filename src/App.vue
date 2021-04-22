@@ -3,7 +3,6 @@
     <transition name="fade" mode="out-in">
       <router-view/>
     </transition>
-    <!-- <button @click="scrollTop"><i class="fas fa-arrow-up btnTop"></i></button> -->
     <i @click="scrollTop" class="fas fa-arrow-up btnTop"></i>
   </div>
 </template>

@@ -11,7 +11,7 @@
               <div class="header-border">
                 <img
                   class="header-img" 
-                  src="https://media-exp1.licdn.com/dms/image/C4D03AQHdmV0OO6LZ3g/profile-displayphoto-shrink_800_800/0/1580138125004?e=1621468800&v=beta&t=7YYpgq7L8ox61jANMv7bPLqNfzrM3vP5HnTGlUYUiJk" 
+                  :src="myPhoto"
                   alt="photo de profil"
                 >
               </div>
@@ -116,6 +116,7 @@ import Container from '@/components/Container'
 import IconPostgres from '@/assets/img/postgres.png'
 import IconSqitch from '@/assets/img/sqitch.png'
 import IconVuejs from '@/assets/img/vuejs.png'
+import MyPhoto from '@/assets/img/moi.jpeg'
 
 export default {
   name: 'About',
@@ -126,6 +127,7 @@ export default {
       iconPostgres: IconPostgres,
       iconSqitch: IconSqitch,
       myVideo: VideoFoodTruck,
+      myPhoto: MyPhoto,
       show: false,
       activeModal: false,
       srcImg: '',
@@ -295,7 +297,7 @@ export default {
 
   .stack {
     margin: 4rem auto;
-    max-width: 600px;
+    max-width: 50%;
     text-align: left;
   }
 
@@ -306,7 +308,7 @@ export default {
   }
 
   .dev-icon {
-    width: 100%;
+    width: auto;
     display: flex;
     justify-content: space-between;
     align-items: center;

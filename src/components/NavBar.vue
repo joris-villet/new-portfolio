@@ -8,7 +8,7 @@
           <div class="nav-border">
             <img
               class="nav-img" 
-              src="https://media-exp1.licdn.com/dms/image/C4D03AQHdmV0OO6LZ3g/profile-displayphoto-shrink_800_800/0/1580138125004?e=1621468800&v=beta&t=7YYpgq7L8ox61jANMv7bPLqNfzrM3vP5HnTGlUYUiJk" 
+              :src="myPhoto" 
               alt="photo de profil"
             >
         </div>
@@ -38,10 +38,13 @@
 </template>
 
 <script>
+import MyPhoto from '@/assets/img/moi.jpeg'
+
 export default {
   name: 'NavBar',
   data () {
     return {
+      myPhoto: MyPhoto,
       fullname: 'Joris villet',
       home: true,
       path: this.$route.path,
