@@ -23,7 +23,8 @@
                         </a>
                      </div>
                   </div>
-                  <p class="text">N'hésitez de m'écrire ou de donner votre avis sur mon portfolio</p>
+                  <p class="text">N'hésitez pas de m'écrire ou de donner votre avis sur mon portfolio</p>
+                  <p class="thanks">Merci de votre visite</p>
                </div>
             </Container>
          </div>
@@ -122,6 +123,11 @@ export default {
       margin: 3rem auto;
       color:#b8b8b8;
       font-style: italic;
+      font-size: 1.2rem;
+   }
+
+   .thanks {
+      color: #915bfd;
       font-size: 1.2rem;
    }
 
