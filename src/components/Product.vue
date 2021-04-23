@@ -5,8 +5,10 @@
         <p class="container-content-name">{{ name }}</p>
         <p>Unité: {{ price }} €</p>
         <p>Quantité: {{ quantity }}</p>
-        <button @click="$emit('add-quantity')" class="btn"><i class="fas fa-plus"></i></button>
-        <button @click="$emit('remove-quantity')" class="btn"><i class="fas fa-minus"></i></button> 
+        <div class="buttons">
+          <button @click="$emit('add-quantity')" class="btn"><i class="fas fa-plus"></i></button>
+          <button @click="$emit('remove-quantity')" class="btn"><i class="fas fa-minus"></i></button> 
+        </div>
       </div>
       <div>
         <img class="images" :src="img" alt="photo">
@@ -61,9 +63,8 @@ export default {
   font-size: 0.9rem;
 }
 
-
 .images {
-  width: 120px;
+  max-width: 120px;
   max-height: 100px;
 }
 
@@ -95,4 +96,31 @@ button {
   color: rgb(219, 144, 3);
 }
 
+@media (max-width: 550px) {
+
+  .container-content-name {
+    font-size: 1.2rem!important;
+  }
+
+  .container-content p {
+    font-size: 0.7rem;
+  }
+
+  .images {
+    max-width: 80px;
+    max-height: 60px;
+  }
+
+  .buttons {
+    display: flex;
+  }
+
+  .btn-buy {
+    padding: 0.4rem;
+  }
+
+  .btn  {
+    padding: 0.1rem 0.7rem;
+  }
+}
 </style>

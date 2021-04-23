@@ -153,4 +153,14 @@ export default {
 li {
   list-style-type: none;
 }
+
+@media (max-width: 550px) {
+  .container-products {
+    max-width: auto;
+    width: 80%;
+    margin: 2rem auto;
+    grid-template-columns: 1fr;
+    grid-row-gap: 20px;
+  }
+}
 </style>

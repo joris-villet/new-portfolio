@@ -47,4 +47,23 @@ export default {
       color: rgb(184, 184, 184);
       font-size: 0.9rem;
    }
+
+   @media (max-width: 550px) {
+
+      .article {
+         padding: 0.2rem 0;
+         line-height: 0.5rem;
+         color: rgb(161, 161, 161);
+      }
+
+      .article-title {
+         font-size: 0.9rem;
+      }
+
+      .article-quantity {
+         font-size: 0.7rem;
+      }
+
+   }
+
 </style>

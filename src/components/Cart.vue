@@ -96,4 +96,36 @@ export default {
    .fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
       opacity: 0;
    }
+
+   @media (max-width: 550px) {
+
+      .panier {
+         padding: 2rem;
+         width: 200px;
+         height: 200px;
+         position: fixed;
+         top: 4rem;
+         right: 1rem;
+      }
+
+      .panier-content {
+         width: 100%;
+         height: 120px;
+      }
+
+      .title {
+         font-size: 1.2rem;
+      }
+
+      .total-price-number {
+         font-size: 1.2rem;
+      }
+
+      .btn {
+         font-size: 0.7rem;
+      }
+
+   }
+
+
 </style>
