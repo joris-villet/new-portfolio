@@ -224,17 +224,16 @@ export default {
       box-shadow: 5px 5px 10px rgba(0,0,0,0.2);
       max-width: 200px;
       min-width: 80px;
-      height: auto;
       opacity: 1;
       transition: .3s ease-in;
-      display: flex;
-      justify-content: center;
-      align-self: center;
+      // display: flex;
+      // justify-content: center;
+      // align-self: center;
     }
 
     &-img {
       width: 100%;
-      height: auto;
+      height: 100%;
     }
 
     &-title {
