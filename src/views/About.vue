@@ -370,7 +370,8 @@ export default {
       margin: 2rem auto;
 
       &-border {
-        max-width: 100px;
+        max-width: 80px;
+        min-width: 20px;
       }
       
       &-title {
