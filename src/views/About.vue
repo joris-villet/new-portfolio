@@ -374,8 +374,8 @@ export default {
       }
       
       &-title {
-        font-size: 3rem;
-        margin-right: 3rem;
+        font-size: 2.5rem;
+        margin-right: 1rem;
       }
 
       &-content {
@@ -446,6 +446,13 @@ export default {
       width: 35px;
     }
 
+  }
+
+  @media (max-width: 320px) {
+    .header-title {
+      font-size: 2rem;
+      margin-right: 1rem;
+    }
   }
 
 
