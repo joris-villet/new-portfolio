@@ -4,6 +4,10 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/css/app.8b4ace31.css"
   },
   {
+    "revision": "3c9abfc499f9f25e9da84a41bcc6499c",
+    "url": "/img/favicon.png"
+  },
+  {
     "revision": "bba55c6221715929d4b70afb4ab57f33",
     "url": "/img/iphone.bba55c62.png"
   },
@@ -48,7 +52,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/img/vuejs.98a8084b.png"
   },
   {
-    "revision": "e48302c8b8d49e1e838196bb31160679",
+    "revision": "5609e2b41983e8d66d1108b67d3882f1",
     "url": "/index.html"
   },
   {
